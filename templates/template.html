@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<!-- <link rel="stylesheet" href="css/custom.css" /> -->
+
+	<title>Task Management System</title>
+<!--
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/screen.css"> -->
+</head>
+
+<body>
+
+  <div class="jumbotron container-fluid">
+		<div class="container">
+			<div class="row">
+        <div class="col-md-4">
+          <img src="" height="" width="" alt="">
+          </div>
+				<div class="col-md-8 d-flex justify-content-end">
+					<h1>Task Management System<h1>
+				</div><!--/.col-md-5-->
+			</div><!--/.row-->
+		</div><!--/.container-->
+	</div><!--/.jumbotron-->
+
+	<form id="form_1" class="form-inline " method="POST" action="/">
+			<div class="form-group">
+	    <label>Task title</label>
+	    <input  id="task_title" name="task_title" type="text" class="form-control"  placeholder="Enter task title">
+	  	</div>
+
+		<div class="form-group">
+	    <label >Description</label>
+	    <input id="task_description" name="task_description" type="text" class="form-control"  placeholder="Enter task description" >
+	  </div>
+
+		<div class="form-group">
+		<label>status</label>
+		<input  id="status" name="status" type="text" class="form-control"  placeholder="Enter task title">
+		</div>
+
+		<div class="form-group">
+		<label>important</label>
+		<input  id="important" name="important" type="text" class="form-control"  placeholder="Enter task title">
+		</div>
+
+		<div class="form-group">
+		<label>date</label>
+		<input  id="date" name="date" type="text" class="form-control"  placeholder="Enter task title">
+		</div>
+
+	  <button id="submit_button" type="submit" class="btn btn-primary">Submit</button>
+	</form>
+
+
+
+	<section id="display_task">
+		<table id="table" class="table">
+			<thead>
+				<tr>
+					<th scope="col">task name</th>
+					<th scope="col">description</th>
+					<th scope="col">status</th>
+					<th scope="col">important</th>
+					<th scope="col">date</th>
+				</tr>
+			</thead>
+			<tbody>
+
+				{% for row in form_data %}
+				<tr>
+					<td>{{ row['title'] }}</td>
+					<td>{{ row['description'] }}</td>
+					<td>{{ row['status'] }}</td>
+					<td>{{ row['important'] }}</td>
+					<td>{{ row['date'] }}</td>
+
+				</tr>
+
+				{% endfor %}
+
+			</tbody>
+		</table>
+		{{form_data}}
+
+		{{message_to_user}}
+
+	</section>
+ <p id="api-resp"></p>
+
+
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
